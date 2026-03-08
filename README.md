@@ -1,3 +1,22 @@
+# GP2040-CE-Pico2W-Bluetooth
+
+⚠️ **Work In Progress (WIP)** ⚠️
+
+This project is a port of the Switch Pro Controller Bluetooth driver for GP2040-CE (specifically for Raspberry Pi Pico W / Pico 2 W).
+
+### 🚩 Current Status
+- **Status:** Under active development / Experimental
+- **Core Functionality:** Basic Bluetooth stack initialization is implemented.
+- **Known Issue:** There is a critical bug where the system may freeze during flash write operations (pairing data save). **Do not use this for competitive play yet.**
+
+### 🛠 To-Do
+- [ ] Fix deadlock/freeze issue during flash write (Move flash logic out of IRQ).
+- [ ] Optimize polling loop for lower latency.
+- [ ] Verify stability on Pico 2 W (RP2350).
+
+---
+*Disclaimer: This is a personal development fork. Use at your own risk.*
+
 <p align="center">
   <a href="https://gp2040-ce.info">
     <img alt="GP2040-CE" src="https://raw.githubusercontent.com/OpenStickCommunity/Site/main/docs/assets/images/gp2040-ce-logo.png" />
