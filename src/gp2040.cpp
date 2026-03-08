@@ -388,7 +388,7 @@ void GP2040::run() {
 			SwitchBTInput btInput;
 			btInput.buttons = gamepad->state.buttons;
 			btInput.dpad = gamepad->state.dpad;
-			btInput.dpadMode = gamepad->getOptions().dpadMode;
+			//btInput.dpadMode = gamepad->getOptions().dpadMode;
 			btInput.lx = gamepad->state.lx;
 			btInput.ly = gamepad->state.ly;
 			btInput.rx = gamepad->state.rx;
@@ -399,7 +399,7 @@ void GP2040::run() {
 			HIDBTInput btInput;
 			btInput.buttons = gamepad->state.buttons;
 			btInput.dpad = gamepad->state.dpad;
-			btInput.dpadMode = gamepad->getOptions().dpadMode;
+			//btInput.dpadMode = gamepad->getOptions().dpadMode;
 			btInput.lx = gamepad->state.lx;
 			btInput.ly = gamepad->state.ly;
 			btInput.rx = gamepad->state.rx;

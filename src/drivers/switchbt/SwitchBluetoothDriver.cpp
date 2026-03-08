@@ -162,7 +162,12 @@ static uint8_t vibration_report = 0;
 static uint8_t player_number = 0;
 
 // Current input state for report generation
+// Current input state for report generation
+#ifdef PICO_RP2350
+static volatile SwitchBTInput currentInput = {0};
+#else
 static SwitchBTInput currentInput = {0};
+#endif
 
 
 // ============================================================================
@@ -778,9 +783,16 @@ bool switchbt_process(const SwitchBTInput* input) {
     if (!btInitialized) return false;
 
     // Poll the async context multiple times to ensure BTstack processes events
+#ifdef PICO_RP2350
+    for (int i = 0; i < 10; i++) {
+        cyw43_arch_poll();
+        sleep_us(50);
+    }
+#else
     for (int i = 0; i < 10; i++) {
         cyw43_arch_poll();
     }
+#endif
 
     // Handle reconnection retries with timeout
     static uint32_t lastReconnectAttempt = 0;
